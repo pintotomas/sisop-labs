@@ -1,0 +1,20 @@
+(ln0) ¿Qué ocurre si se intenta crear un enlace a un archivo que no existe?
+
+Se crea un dangling link (nombre que se le da en la documentacion). Es como un symlink con un target invalido, que ya no existe.
+
+(mv0) ¿Se puede usar mv0 para renombrar archivos dentro del mismo directorio?
+
+Si, pues se esta utilizando la syscall "rename", que renombra a un archivo o lo mueve de directorio si es necesario.
+
+(ln1) ¿Cuál es la diferencia entre un hard link y un soft link?
+
+Un hardlink no es un puntero a un archivo (como si lo es un soft link, que apunta a un path y no a un inodo) si no que es un archivo que apunta al mismo inodo que el archivo original. 
+Además, no se pueden crear hardlinks que apunten a un directorio o hacia archivos en otra particion. Tambien, son tipos de archivo diferente (regular y symbolic)
+
+(ln1) Crear un hard link a un archivo, luego eliminar el archivo original ¿Qué pasa con el enlace? ¿Se perdieron los datos del archivo?
+
+No se eliminaron los datos y el enlace permanece. Aún queda el hard link apuntando al mismo inodo del archivo recientemente eliminado y por eso la información está intacta.
+
+(ln1) Repetir lo mismo, pero con un soft link. ¿Qué pasa ahora con el enlace? ¿Se perdieron los datos esta vez?
+
+El enlace sigue funcionando (al abrirlo se abre un archivo) pero esta vez se encuentra vacio (los datos se perdieron). Lo que sucede es que al eliminar el archivo original se pierde la referencia al inodo y por ende la referencia al bloque donde se encuentran los datos.

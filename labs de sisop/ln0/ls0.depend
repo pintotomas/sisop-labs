@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1522893558 source:/home/tomas/Sistemas Operativos/labs de sisop/ls0/main.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<fcntl.h>
+

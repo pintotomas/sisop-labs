@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1522639581 source:/home/tomas/Sistemas Operativos/labs de sisop/cat0/main.c
+	<stdio.h>
+	<stdlib.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<unistd.h>
+	<stdbool.h>
+	<assert.h>
+
